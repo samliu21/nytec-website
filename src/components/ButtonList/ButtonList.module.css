@@ -1,7 +1,6 @@
 .grid {
-	display: grid;
-	grid-gap: 10px;
+	display: inline-grid;
 	grid-template-columns: repeat(3, 1fr);
-	width: 100vw;
-	height: 100vh;
+	grid-auto-columns: min-content;
+	height: var(--body-height);
 }

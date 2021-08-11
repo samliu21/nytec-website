@@ -18,11 +18,9 @@ export default function ButtonList() {
 				setChildren(data.children);
 				return;
 			}
-			console.log(urlId);
 
 			for (const item of data.children) {
 				if (item.id === +urlId) {
-					console.log(item);
 					if (item.type === "URL") {
 						history.push("/");
 						return;

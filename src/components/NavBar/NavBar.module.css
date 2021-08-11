@@ -1,0 +1,7 @@
+.container {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	background-color: var(--light);
+	height: var(--header-height);
+}

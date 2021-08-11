@@ -19,9 +19,13 @@ export default function Button(props) {
 
 	// return <p onClick={clickHandler}>{props.item.id}</p>;
 	return (
-		<div onClick={clickHandler}>
-			<img src={props.item.image} alt={props.item.name} className={styles.image} />
-			<p>{props.item.name}</p>
+		<div onClick={clickHandler} className={styles.button}>
+			<img
+				src={props.item.image}
+				alt={props.item.name}
+				className={styles.image}
+			/>
+			<p className={styles.name}>{props.item.name}</p>
 		</div>
 	);
 }
