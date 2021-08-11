@@ -3,8 +3,9 @@ import { useHistory } from "react-router";
 
 import Button from "../Button/Button";
 import data from "../../data/data";
+import styles from "./ButtonList.module.css";
 
-export default function ButtonList(props) {
+export default function ButtonList() {
 	const [children, setChildren] = useState();
 
 	const history = useHistory();
@@ -26,12 +27,12 @@ export default function ButtonList(props) {
 						history.push("/");
 						return;
 					}
-					
+
 					setChildren(item.children);
 					return;
 				}
 			}
-		}
+		};
 		getChildrenFromUrl(history.location);
 
 		const unlisten = history.listen((location) => {
@@ -53,5 +54,5 @@ export default function ButtonList(props) {
 		return null;
 	}
 
-	return renderButtons();
+	return <div className={styles.grid}>{renderButtons()}</div>;
 }
