@@ -44,6 +44,8 @@ export default function Authenticate() {
 			alert("密碼不匹配! 請再試一次!");
 			return;
 		}
+		
+		setEmail((email) => email.trim());
 
 		setIsLoading(true);
 		// --- LOGIN ---

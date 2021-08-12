@@ -160,6 +160,7 @@ const sendToDatabase = (userId, idToken) => {
 			);
 
 			const emailVerified = verifyResponse.data.users[0].emailVerified;
+			console.log(role);
 
 			dispatch(
 				sendToRedux({
@@ -173,7 +174,7 @@ const sendToDatabase = (userId, idToken) => {
 				await axios.put(
 					`https://nytec-app-default-rtdb.firebaseio.com/users/${userId}.json?auth=${idToken}`,
 					{
-						role: "user",
+						role: role,
 					},
 					{
 						headers: {

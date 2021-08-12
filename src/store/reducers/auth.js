@@ -14,6 +14,7 @@ export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case SEND_TO_REDUX:
 			const newState = { ...state };
+			console.log(action.kwargs);
 			for (const key in action.kwargs) {
 				newState[key] = action.kwargs[key];
 			}

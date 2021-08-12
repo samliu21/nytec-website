@@ -1,0 +1,20 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	padding: var(--screen-padding);
+}
+.title {
+	color: white;
+	font-size: var(--large);
+	text-align: center;
+}
+.message {
+	padding: min(6px, 3%);
+	color: black;
+	background-color: var(--light);
+	font-size: var(--small)
+}
+.btn {
+	margin-top: 15px;
+	align-self: flex-end;
+}

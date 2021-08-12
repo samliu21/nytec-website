@@ -10,6 +10,8 @@ export default function NavBar() {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const email = useSelector((state) => state.auth.email);
+	const emailVerified = useSelector((state) => state.auth.emailVerified);
+	const role = useSelector((state) => state.auth.role);
 
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -97,12 +99,14 @@ export default function NavBar() {
 				>
 					Home
 				</div>
-				<div
-					className={`${styles.item} ${ui.pointer}`}
-					onClick={adminClickHandler}
-				>
-					Admin
-				</div>
+				{role === "admin" && (
+					<div
+						className={`${styles.item} ${ui.pointer}`}
+						onClick={adminClickHandler}
+					>
+						Admin
+					</div>
+				)}
 			</div>
 			<AuthComponent />
 		</div>
