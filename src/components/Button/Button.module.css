@@ -1,15 +1,16 @@
 .image {
 	height: 75%;
+	aspect-ratio: 1;
 }
 .button {
-	display: inline-flex;
+	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	height: calc(var(--body-height) / 3);
 	margin: 0 10px;
-	position: relative;
 }
 .name {
 	text-align: center;
+	color: white;
 }
