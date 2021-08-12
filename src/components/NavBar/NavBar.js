@@ -37,15 +37,23 @@ export default function NavBar() {
 
 	const AuthComponent = () => {
 		if (email) {
+			const emailText = (
+				<p className={styles.email}>{email}</p>
+			)
 			return (
 				<div
 					className={styles.dropdown}
 					onMouseEnter={menuOpenHandler}
 					onMouseLeave={menuCloseHandler}
 				>
-					<div className={`${styles.item}`}>{`Welcome ${email}!`}</div>
+					<div className={`${styles.item}`}>
+						Welcome&nbsp;{emailText}!
+					</div>
 					{menuOpen && (
-						<div className={`${styles.logout} ${ui.pointer}`} onClick={logoutHandler}>
+						<div
+							className={`${styles.logout} ${ui.pointer}`}
+							onClick={logoutHandler}
+						>
 							Logout
 						</div>
 					)}

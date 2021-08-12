@@ -9,6 +9,7 @@
 	justify-content: center;
 	height: calc(var(--body-height) / 3);
 	margin: 0 10px;
+	cursor: pointer;
 }
 .name {
 	text-align: center;
