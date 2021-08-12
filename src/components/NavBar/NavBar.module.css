@@ -5,13 +5,29 @@
 	background-color: var(--light);
 	height: var(--header-height);
 }
-.item {
+.dropdown {
 	height: 100%;
+	position: relative;
+}
+.logout {
+	position: absolute;
+	width: 100%;
+	background-color: var(--light);
+	right: 0;
+	text-align: right;
+	padding: 5px;
+	padding-right: 15px;
+}
+.logout:hover {
+	background: var(--hover);
+}
+.item {
 	display: flex;
 	align-items: center;
 	padding: 0 15px;
+	height: 100%;
 	font-size: var(--small);
 }
 .item:hover {
-	background-color: red;
+	background-color: var(--hover);
 }
