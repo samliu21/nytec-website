@@ -1,0 +1,6 @@
+.input {
+	padding: min(6px, 3%);
+	margin-top: 10;
+	color: black;
+	background-color: var(--light);
+}

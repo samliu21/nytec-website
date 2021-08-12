@@ -1,0 +1,6 @@
+.btn {
+	background-color: var(--light);
+	padding: 10px;
+	width: auto;
+	align-self: center;
+}
