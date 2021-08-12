@@ -1,7 +1,10 @@
 .btn {
 	background-color: var(--light);
-	padding: 10px;
+	color: var(--primary);
+	padding: 8px;
 	width: auto;
 	align-self: center;
 	font-size: var(--small);
+	border: 0;
+	cursor: pointer;
 }

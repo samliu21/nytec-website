@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 import * as authActions from "../../store/actions/auth";
 import { apiKey } from "../../constants/Values";
 import axios from "axios";
 import CustomButton from "../CustomButton/CustomButton";
 import Input from "../Input/Input";
+import LoadingCircle from "../LoadingCircle/LoadingCircle";
+import logo from "../../assets/紐神.png";
+import ResetPassword from "../ResetPassword/ResetPassword";
 import styles from "./Authenticate.module.css";
 
 export default function Authenticate(props) {
@@ -15,6 +19,7 @@ export default function Authenticate(props) {
 	const [isLogin, setIsLogin] = useState(true);
 	const [isLoading, setIsLoading] = useState(false);
 
+	const history = useHistory();
 	const dispatch = useDispatch();
 
 	const emailChangeHandler = (e) => {
@@ -129,12 +134,22 @@ export default function Authenticate(props) {
 				alert(message);
 			}
 		}
+
+		setIsLoading(false);
+		history.push("/");
 	};
 
 	return (
 		<div className={styles.container}>
-			<h2 className={styles.title}>{isLogin ? "登錄/Login" : "報名/Sign up"}</h2>
+			{isLoading && <LoadingCircle />}
 
+			{/* Logo */}
+			<img src={logo} alt="logo" className={styles.image} />
+
+			{/* Title */}
+			<h2 className={styles.title}>{isLogin ? "登錄" : "報名"}</h2>
+
+			{/* Input fields */}
 			<Input
 				value={email}
 				onChange={emailChangeHandler}
@@ -154,6 +169,8 @@ export default function Authenticate(props) {
 					type="password"
 				/>
 			)}
+
+			{/* Buttons */}
 			<div className={styles["button-container"]}>
 				<CustomButton onClick={switchHandler}>
 					{isLogin ? "開設新賬戶" : "切換到登錄"}
@@ -162,6 +179,9 @@ export default function Authenticate(props) {
 					{isLogin ? "登入" : "報名"}
 				</CustomButton>
 			</div>
+
+			{/* Reset password button */}
+			<ResetPassword />
 		</div>
 	);
 }

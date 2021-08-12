@@ -1,8 +1,8 @@
 import styles from "./Input.module.css";
 
 export default function Input(props) {
-	const { style, placeholder, type, value, onChange } = props;
-	const finalStyle = `${style} ${styles.input}`;
+	const { className, placeholder, type, value, onChange } = props;
+	const finalStyle = `${className} ${styles.input}`;
 
 	return (
 		<input
