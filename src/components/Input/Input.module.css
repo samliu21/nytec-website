@@ -3,4 +3,5 @@
 	margin-top: 10;
 	color: black;
 	background-color: var(--light);
+	font-size: var(--small);
 }

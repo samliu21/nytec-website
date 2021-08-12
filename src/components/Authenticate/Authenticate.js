@@ -158,9 +158,9 @@ export default function Authenticate(props) {
 				<CustomButton onClick={switchHandler}>
 					{isLogin ? "開設新賬戶" : "切換到登錄"}
 				</CustomButton>
-				<button onClick={submitHandler}>
+				<CustomButton onClick={submitHandler}>
 					{isLogin ? "登入" : "報名"}
-				</button>
+				</CustomButton>
 			</div>
 		</div>
 	);

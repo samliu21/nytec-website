@@ -19,8 +19,12 @@ export default function NavBar() {
 
 	return (
 		<div className={styles.container}>
-			<span onClick={homeClickHandler}>Home</span>
-			<span onClick={loginClickHandler}>{email ? `Welcome ${email}!` : "Login"}</span>
+			<div className={styles.item} onClick={homeClickHandler}>
+				Home
+			</div>
+			<div className={styles.item} onClick={loginClickHandler}>
+				{email ? `Welcome ${email}!` : "Login"}
+			</div>
 		</div>
 	);
 }

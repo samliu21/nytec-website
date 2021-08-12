@@ -1,6 +1,9 @@
 :root {
 	--light: #e3e4e6;
 
+	--small: 2vmin;
+	--large: 4vmin;
+
 	--header-height: 5vh;
 	--body-height: 95vh;
 }
