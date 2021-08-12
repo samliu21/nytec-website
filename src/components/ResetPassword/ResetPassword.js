@@ -5,6 +5,9 @@ import styles from "./ResetPassword.module.css";
 export default function ResetPassword() {
 	const resetPasswordHandler = async () => {
 		const email = window.prompt("輸入你的電子郵箱:");
+		if (!email) {
+			return;
+		}
 
 		try {
 			await axios.post(

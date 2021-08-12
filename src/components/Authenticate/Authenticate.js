@@ -12,7 +12,7 @@ import Logo from "../Logo/Logo";
 import ResetPassword from "../ResetPassword/ResetPassword";
 import styles from "./Authenticate.module.css";
 
-export default function Authenticate(props) {
+export default function Authenticate() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [retypedPassword, setRetypedPassword] = useState("");
@@ -96,7 +96,7 @@ export default function Authenticate(props) {
 		else {
 			try {
 				const response = await axios.post(
-					`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${props.apiKey}`,
+					`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`,
 					{
 						email: email,
 						password: password,
@@ -108,7 +108,7 @@ export default function Authenticate(props) {
 				);
 
 				dispatch(authActions.authenticate(response));
-				history.push("/");
+				history.push("/verify");
 			} catch (err) {
 				// Error handling
 				let message = "處理您的信息時出錯。";

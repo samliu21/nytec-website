@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 
+import Admin from "./components/Admin/Admin";
 import Authenticate from "./components/Authenticate/Authenticate";
 import ButtonList from "./components/ButtonList/ButtonList";
 import NavBar from "./components/NavBar/NavBar";
@@ -32,6 +33,7 @@ export default function App() {
 								path="/verify"
 								component={VerifyEmail}
 							/>
+							<Route exact path="/admin" component={Admin} />
 							<Route path="/" component={ButtonList} />
 						</Switch>
 					</div>

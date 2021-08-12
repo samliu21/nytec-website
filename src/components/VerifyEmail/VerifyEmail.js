@@ -9,7 +9,10 @@ import Logo from "../Logo/Logo";
 import styles from "./VerifyEmail.module.css";
 
 export default function VerifyEmail() {
+	const userId = useSelector((state) => state.auth.userId);
 	const idToken = useSelector((state) => state.auth.idToken);
+	const email = useSelector((state) => state.auth.email);
+	const refreshToken = useSelector((state) => state.auth.refreshToken);
 
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -60,6 +63,7 @@ export default function VerifyEmail() {
 			);
 
 			const emailVerified = verify.data.users[0].emailVerified;
+			console.log(emailVerified);
 
 			// If the user has not verified their email
 			if (emailVerified === false) {
@@ -69,11 +73,35 @@ export default function VerifyEmail() {
 
 			// Set redux state
 			dispatch(authActions.sendToRedux({ emailVerified: emailVerified }));
-			alert("您的電子郵件已通過驗證。");
-			history.push("");
+
+			const response = await axios.post(
+				`https://securetoken.googleapis.com/v1/token?key=${apiKey}`,
+				{
+					grant_type: "refresh_token",
+					refresh_token: refreshToken,
+				}
+			);
+			dispatch(authActions.refreshIdToken(refreshToken, response));
+			const newIdToken = response.data.id_token;
+
+			await axios.put(
+				`https://nytec-app-default-rtdb.firebaseio.com/emails/${userId}.json?auth=${newIdToken}`,
+				{
+					email: email,
+				},
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+
+			history.push("/");
 		} catch (err) {
 			let message = "無法驗證您。";
+			console.dir(err);
 			if (err.response) {
+				console.log(err.response.data.error.message);
 				switch (err.response.data.error.message) {
 					case "INVALID_ID_TOKEN":
 						message = "您的 ID 無效。請重新登錄以獲取新的。";
@@ -85,7 +113,7 @@ export default function VerifyEmail() {
 						message = "無法驗證您。";
 				}
 			}
-			alert("驗證您的電子郵件時出錯。", message);
+			alert(message);
 		}
 	};
 

@@ -38,16 +38,19 @@ export const setIdToken = (
 };
 
 // Get a new id token
-export const refreshIdToken = (refreshToken) => {
+export const refreshIdToken = (refreshToken, existingData = null) => {
 	return async (dispatch) => {
 		try {
-			const response = await axios.post(
-				`https://securetoken.googleapis.com/v1/token?key=${apiKey}`,
-				{
-					grant_type: "refresh_token",
-					refresh_token: refreshToken,
-				}
-			);
+			let response = existingData;
+			if (!response) {
+				response = await axios.post(
+					`https://securetoken.googleapis.com/v1/token?key=${apiKey}`,
+					{
+						grant_type: "refresh_token",
+						refresh_token: refreshToken,
+					}
+				);
+			}
 			const newIdToken = response.data.id_token;
 			const newRefreshToken = response.data.refresh_token;
 			const expiresIn = +response.data.expires_in * 1000;
@@ -109,7 +112,8 @@ export const logout = () => {
 export const authenticate = (response) => {
 	return async (dispatch) => {
 		try {
-			let { idToken, localId, email, expiresIn, refreshToken } = response.data;
+			let { idToken, localId, email, expiresIn, refreshToken } =
+				response.data;
 			expiresIn = +expiresIn * 1000;
 
 			const expirationDate = new Date(

@@ -10,7 +10,6 @@ export default function NavBar() {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const email = useSelector((state) => state.auth.email);
-	const emailVerified = useSelector((state) => state.auth.emailVerified);
 
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -30,10 +29,15 @@ export default function NavBar() {
 	const logoutHandler = () => {
 		setMenuOpen(false);
 		dispatch(authActions.logout());
+		history.push("/login");
 	};
 
 	const verifyEmailHandler = () => {
 		history.push("/verify");
+	};
+
+	const adminClickHandler = () => {
+		history.push("/admin");
 	};
 
 	const homeClickHandler = () => {
@@ -86,11 +90,19 @@ export default function NavBar() {
 
 	return (
 		<div className={styles.container}>
-			<div
-				className={`${styles.item} ${ui.pointer}`}
-				onClick={homeClickHandler}
-			>
-				Home
+			<div className={styles["div-container"]}>
+				<div
+					className={`${styles.item} ${ui.pointer}`}
+					onClick={homeClickHandler}
+				>
+					Home
+				</div>
+				<div
+					className={`${styles.item} ${ui.pointer}`}
+					onClick={adminClickHandler}
+				>
+					Admin
+				</div>
 			</div>
 			<AuthComponent />
 		</div>
