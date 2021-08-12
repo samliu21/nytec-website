@@ -14,4 +14,6 @@
 .name {
 	text-align: center;
 	color: white;
+	font-size: var(--medium);
+	margin: 10px 0;
 }

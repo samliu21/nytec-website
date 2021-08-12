@@ -6,10 +6,12 @@
 	--hover: #cacccf;
 
 	--small: 2vmin;
+	--medium: 2.3vmin;
 	--large: 4vmin;
 
 	--header-height: 5vh;
 	--body-height: 95vh;
+	--screen-padding: 4vmin;
 }
 
 /* Default font and box sizing */
@@ -31,7 +33,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	background-image: url("./assets/rotatedAppBackground.png");
-	background-size: contain;
+	background-size: cover;
 }
 #main {
 	margin: 0 auto;

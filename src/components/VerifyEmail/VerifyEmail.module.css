@@ -1,0 +1,16 @@
+.container {
+	padding: var(--screen-padding);
+}
+.heading {
+	color: white;
+	font-size: var(--large);
+	text-align: center;
+}
+.text {
+	color: white;
+	font-size: var(--medium);
+}
+.button-container {
+	display: flex;
+	justify-content: space-between;
+}

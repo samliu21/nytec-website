@@ -9,8 +9,7 @@
 	height: 100%;
 	position: relative;
 }
-.logout {
-	position: absolute;
+.option {
 	width: 100%;
 	background-color: var(--light);
 	right: 0;
@@ -19,8 +18,12 @@
 	padding-right: 15px;
 	font-size: var(--small);
 }
-.logout:hover {
+.option:hover {
 	background: var(--hover);
+}
+.option-container {
+	width: 100%;
+	position: absolute;
 }
 .item {
 	display: flex;

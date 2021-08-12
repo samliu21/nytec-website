@@ -8,7 +8,7 @@ import axios from "axios";
 import CustomButton from "../CustomButton/CustomButton";
 import Input from "../Input/Input";
 import LoadingCircle from "../LoadingCircle/LoadingCircle";
-import logo from "../../assets/紐神.png";
+import Logo from "../Logo/Logo";
 import ResetPassword from "../ResetPassword/ResetPassword";
 import styles from "./Authenticate.module.css";
 
@@ -62,6 +62,7 @@ export default function Authenticate(props) {
 				);
 
 				dispatch(authActions.authenticate(response));
+				history.push("/");
 			} catch (err) {
 				let message = "處理您的信息時出錯。";
 				if (err.response) {
@@ -84,6 +85,8 @@ export default function Authenticate(props) {
 						case "USER_DISABLED":
 							message = "用戶已被禁用。";
 							break;
+						default:
+							message = "處理您的信息時出錯。";
 					}
 				}
 				alert(message);
@@ -105,6 +108,7 @@ export default function Authenticate(props) {
 				);
 
 				dispatch(authActions.authenticate(response));
+				history.push("/");
 			} catch (err) {
 				// Error handling
 				let message = "處理您的信息時出錯。";
@@ -128,6 +132,8 @@ export default function Authenticate(props) {
 						case "WEAK_PASSWORD : Password should be at least 6 characters":
 							message = "密碼應至少為 6 個字。";
 							break;
+						default:
+							message = "處理您的信息時出錯。";
 					}
 				}
 
@@ -136,15 +142,13 @@ export default function Authenticate(props) {
 		}
 
 		setIsLoading(false);
-		history.push("/");
 	};
 
 	return (
 		<div className={styles.container}>
 			{isLoading && <LoadingCircle />}
 
-			{/* Logo */}
-			<img src={logo} alt="logo" className={styles.image} />
+			<Logo />
 
 			{/* Title */}
 			<h2 className={styles.title}>{isLogin ? "登錄" : "報名"}</h2>

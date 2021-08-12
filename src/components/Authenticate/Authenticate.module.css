@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	padding: 4vmin;
+	padding: var(--screen-padding);
 }
 .button-container {
 	display: flex;
@@ -13,8 +13,4 @@
 	color: white;
 	text-align: center;
 	font-size: var(--large);
-}
-.image {
-	width: 30vmin;
-	margin: 0 auto;
 }

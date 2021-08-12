@@ -22,16 +22,18 @@ export default function ResetPassword() {
 			if (err.response) {
 				switch (err.response.data.error.message) {
 					case "EMAIL_NOT_FOUND":
-						message = "電子郵件有錯誤.";
+						message = "電子郵件有錯誤。";
 						break;
 					case "INVALID_EMAIL":
 						message = "電子郵件無效。";
 						break;
+					default:
+						message = "發送電子郵件時出錯。";
 				}
 			}
 			alert(message);
 		}
-	}
+	};
 
 	return (
 		<p onClick={resetPasswordHandler} className={styles.forgot}>

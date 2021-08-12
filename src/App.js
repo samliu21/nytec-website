@@ -7,6 +7,7 @@ import Authenticate from "./components/Authenticate/Authenticate";
 import ButtonList from "./components/ButtonList/ButtonList";
 import NavBar from "./components/NavBar/NavBar";
 import { store, persistor } from "./store/store";
+import VerifyEmail from "./components/VerifyEmail/VerifyEmail";
 
 export default function App() {
 	useEffect(() => {}, []);
@@ -25,6 +26,11 @@ export default function App() {
 								exact
 								path={["/login", "/signup"]}
 								component={Authenticate}
+							/>
+							<Route
+								exact
+								path="/verify"
+								component={VerifyEmail}
 							/>
 							<Route path="/" component={ButtonList} />
 						</Switch>

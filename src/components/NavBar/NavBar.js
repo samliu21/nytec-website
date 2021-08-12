@@ -10,6 +10,7 @@ export default function NavBar() {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const email = useSelector((state) => state.auth.email);
+	const emailVerified = useSelector((state) => state.auth.emailVerified);
 
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -31,15 +32,17 @@ export default function NavBar() {
 		dispatch(authActions.logout());
 	};
 
+	const verifyEmailHandler = () => {
+		history.push("/verify");
+	};
+
 	const homeClickHandler = () => {
 		history.push("/");
 	};
 
 	const AuthComponent = () => {
 		if (email) {
-			const emailText = (
-				<p className={styles.email}>{email}</p>
-			)
+			const emailText = <p className={styles.email}>{email}</p>;
 			return (
 				<div
 					className={styles.dropdown}
@@ -50,11 +53,21 @@ export default function NavBar() {
 						Welcome&nbsp;{emailText}!
 					</div>
 					{menuOpen && (
-						<div
-							className={`${styles.logout} ${ui.pointer}`}
-							onClick={logoutHandler}
-						>
-							Logout
+						<div className={styles["option-container"]}>
+							{!emailVerified && (
+								<div
+									className={`${styles.option} ${ui.pointer}`}
+									onClick={verifyEmailHandler}
+								>
+									Verify Email
+								</div>
+							)}
+							<div
+								className={`${styles.option} ${ui.pointer}`}
+								onClick={logoutHandler}
+							>
+								Logout
+							</div>
 						</div>
 					)}
 				</div>
