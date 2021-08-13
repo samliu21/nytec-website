@@ -11,6 +11,7 @@ import LoadingCircle from "../LoadingCircle/LoadingCircle";
 import Logo from "../Logo/Logo";
 import ResetPassword from "../ResetPassword/ResetPassword";
 import styles from "./Authenticate.module.css";
+import ui from "../../ui.module.css";
 
 export default function Authenticate() {
 	const [email, setEmail] = useState("");
@@ -153,7 +154,7 @@ export default function Authenticate() {
 			<Logo />
 
 			{/* Title */}
-			<h2 className={styles.title}>{isLogin ? "登錄" : "報名"}</h2>
+			<h2 className={ui.title}>{isLogin ? "登錄" : "報名"}</h2>
 
 			{/* Input fields */}
 			<Input

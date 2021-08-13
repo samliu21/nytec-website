@@ -4,9 +4,11 @@ import { useHistory } from "react-router";
 import Button from "../Button/Button";
 import data from "../../data/data";
 import styles from "./ButtonList.module.css";
+import ui from "../../ui.module.css";
 
 export default function ButtonList() {
 	const [children, setChildren] = useState();
+	const [name, setName] = useState();
 
 	const history = useHistory();
 
@@ -16,6 +18,7 @@ export default function ButtonList() {
 
 			if (urlId === "") {
 				setChildren(data.children);
+				setName(data.name);
 				return;
 			}
 
@@ -27,6 +30,7 @@ export default function ButtonList() {
 					}
 
 					setChildren(item.children);
+					setName(item.name);
 					return;
 				}
 			}
@@ -52,5 +56,10 @@ export default function ButtonList() {
 		return null;
 	}
 
-	return <div className={styles.grid}>{renderButtons()}</div>;
+	return (
+		<div className={styles.container}>
+			<h2 className={ui.title}>{name}</h2>
+			<div className={styles.grid}>{renderButtons()}</div>
+		</div>
+	);
 }

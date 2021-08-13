@@ -1,19 +1,17 @@
 .image {
-	height: 75%;
+	height: min(250px, 19vmin);
 	aspect-ratio: 1;
 }
 .button {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: calc(var(--body-height) / 3);
-	margin: 0 10px;
+	display: inline-block;
+	margin: 0 1.5vh;
 	cursor: pointer;
 }
 .name {
+	width: 0;
+	min-width: 100%;
 	text-align: center;
 	color: white;
 	font-size: var(--medium);
-	margin: 10px 0;
+	margin: 1vh 0 2vh 0;
 }

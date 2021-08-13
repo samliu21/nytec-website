@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import CustomButton from "../CustomButton/CustomButton";
 import Input from "../Input/Input";
 import styles from "./Admin.module.css";
+import ui from "../../ui.module.css";
 
 export default function Admin() {
 	const [title, setTitle] = useState("");
@@ -35,14 +36,14 @@ export default function Admin() {
 
 	return (
 		<div className={styles.container}>
-			<h2 className={styles.title}>标题</h2>
+			<h2 className={ui.title}>标题</h2>
 			<Input
 				value={title}
 				onChange={titleChangeHandler}
 				placeholder="標題"
 			/>
 			<textarea
-				rows={15}
+				rows={5}
 				className={styles.message}
 				placeholder="信息"
 				ref={messageRef}

@@ -3,10 +3,9 @@
 	justify-content: space-between;
 	align-items: center;
 	background-color: var(--light);
-	height: var(--header-height);
+	position: relative;
 }
 .dropdown {
-	height: 100%;
 	position: relative;
 }
 .option {
@@ -28,8 +27,8 @@
 .item {
 	display: flex;
 	align-items: center;
-	padding: 0 15px;
-	height: 100%;
+	padding: min(2vmin, 15px);
+	margin: 0;
 	font-size: var(--small);
 	font-weight: 500;
 }
@@ -39,8 +38,8 @@
 .email {
 	color: var(--primary);
 	font-style: italic;
+	margin: 0;
 }
 .div-container {
 	display: flex;
-	height: 100%;
 }
