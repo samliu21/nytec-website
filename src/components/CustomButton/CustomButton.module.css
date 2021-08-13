@@ -1,7 +1,7 @@
 .btn {
 	background-color: var(--light);
 	color: var(--primary);
-	padding: 8px;
+	padding: min(15px, 0.7%);
 	width: auto;
 	align-self: center;
 	font-size: var(--small);

@@ -15,6 +15,9 @@ export default function ButtonList() {
 	useEffect(() => {
 		const getChildrenFromUrl = (location) => {
 			const urlId = location.pathname.substr(1);
+			if (isNaN(+urlId)) {
+				return;
+			}
 
 			if (urlId === "") {
 				setChildren(data.children);
@@ -35,7 +38,6 @@ export default function ButtonList() {
 				}
 			}
 
-			// URL is improper form
 			history.push("/error");
 		};
 		getChildrenFromUrl(history.location);

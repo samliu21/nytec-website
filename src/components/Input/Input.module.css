@@ -1,7 +1,9 @@
 .input {
-	padding: min(6px, 3%);
-	margin-bottom: 8px;
+	padding: min(10px, 0.5%);
+	margin-bottom: min(15px, 0.5%);
 	color: black;
 	background-color: var(--light);
 	font-size: var(--small);
+	border-radius: 0;
+	border: 0;
 }
