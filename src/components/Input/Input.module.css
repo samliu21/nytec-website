@@ -1,6 +1,6 @@
 .input {
-	padding: min(10px, 0.5%);
-	margin-bottom: min(15px, 0.5%);
+	padding: max(5px, min(10px, 0.5%));
+	margin-bottom: max(5px, min(15px, 0.5%));
 	color: black;
 	background-color: var(--light);
 	font-size: var(--small);

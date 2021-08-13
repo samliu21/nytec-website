@@ -12,7 +12,9 @@
 	padding: min(6px, 3%);
 	color: black;
 	background-color: var(--light);
-	font-size: var(--small)
+	font-size: var(--small);
+	border-radius: 0;
+	border-width: 0;
 }
 .btn {
 	margin-top: 15px;
