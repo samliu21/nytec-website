@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 
@@ -23,6 +23,15 @@ export default function Authenticate() {
 	const history = useHistory();
 	const dispatch = useDispatch();
 
+	const { pathname } = history.location;
+
+	useEffect(() => {
+		const urlIsLogin = pathname.indexOf("login") !== -1;
+		if (isLogin !== urlIsLogin) {
+			setIsLogin(urlIsLogin);
+		}
+	}, [pathname]);
+
 	const emailChangeHandler = (e) => {
 		setEmail(e.target.value);
 	};
@@ -36,6 +45,7 @@ export default function Authenticate() {
 	};
 
 	const switchHandler = () => {
+		history.push(`/${isLogin ? "signup" : "login"}`);
 		setIsLogin((state) => !state);
 	};
 
@@ -45,7 +55,7 @@ export default function Authenticate() {
 			alert("密碼不匹配! 請再試一次!");
 			return;
 		}
-		
+
 		setEmail((email) => email.trim());
 
 		setIsLoading(true);

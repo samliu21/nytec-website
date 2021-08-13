@@ -19,18 +19,20 @@ export default function Admin() {
 		setTitle(e.target.value);
 	};
 
-	const submitHandler = () => {
+	const submitHandler = async () => {
 		const message = messageRef.current.value;
 
-		const response = window.confirm("您確定要將此電子郵件發送給所有用戶嗎?");
+		const response = window.confirm(
+			"您確定要將此電子郵件發送給所有用戶嗎?"
+		);
 		if (response) {
-			// Make email API call
+			console.log("Sending email with message: " + message);
 		}
 	};
 
 	useEffect(() => {
 		if (role !== "admin") {
-			history.push("/");
+			history.push("/error");
 		}
 	}, [role, history]);
 

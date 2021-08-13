@@ -34,6 +34,9 @@ export default function ButtonList() {
 					return;
 				}
 			}
+
+			// URL is improper form
+			history.push("/error");
 		};
 		getChildrenFromUrl(history.location);
 
