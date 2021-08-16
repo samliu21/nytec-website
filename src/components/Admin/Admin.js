@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
+import axios from "axios";
 import CustomButton from "../CustomButton/CustomButton";
 import Input from "../Input/Input";
 import styles from "./Admin.module.css";
@@ -11,6 +12,7 @@ export default function Admin() {
 	const [title, setTitle] = useState("");
 
 	const role = useSelector((state) => state.auth.role);
+	const idToken = useSelector((state) => state.auth.idToken);
 	const messageRef = useRef();
 
 	const history = useHistory();
@@ -27,6 +29,40 @@ export default function Admin() {
 		);
 		if (response) {
 			console.log("Sending email with message: " + message);
+
+			let response;
+			try {
+				response = await axios.get(
+					`https://nytec-app-default-rtdb.firebaseio.com/emails.json?auth=${idToken}`
+				);
+			} catch (err) {
+				alert("Can't get user emails.");
+				return;
+			}
+
+			const emailList = new Set();
+			for (const key in response.data) {
+				emailList.add(response.data[key]["email"]);
+			}
+
+			try {
+				await axios.post(
+					"https://nytec-website-api.herokuapp.com",
+					{
+						sender: "nytec.app@gmail.com",
+						send_to: Array.from(emailList),
+						subject: title,
+						html_content: message,
+						id_token: idToken,
+					},
+					{
+						"Content-Type": "application/json",
+					}
+				);
+				alert("Emails have been sent!");
+			} catch (err) {
+				alert("Could not send emails.");
+			}
 		}
 	};
 

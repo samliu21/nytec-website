@@ -30,7 +30,7 @@ export default function Authenticate() {
 		if (isLogin !== urlIsLogin) {
 			setIsLogin(urlIsLogin);
 		}
-	}, [pathname]);
+	}, [pathname, isLogin]);
 
 	const emailChangeHandler = (e) => {
 		setEmail(e.target.value);
