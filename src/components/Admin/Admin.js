@@ -44,12 +44,14 @@ export default function Admin() {
 			for (const key in response.data) {
 				emailList.add(response.data[key]["email"]);
 			}
+			console.log("Gathered emails...");
 
 			if (emailList.size > 300) {
 				alert(
 					"Email list size cannot be greater than 300. Please email me at sam4button@gmail.com for details."
 				);
 			}
+			console.log("Email size is less than 300...")
 
 			try {
 				await axios.post(
