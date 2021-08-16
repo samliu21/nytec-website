@@ -45,6 +45,12 @@ export default function Admin() {
 				emailList.add(response.data[key]["email"]);
 			}
 
+			if (emailList.size > 300) {
+				alert(
+					"Email list size cannot be greater than 300. Please email me at sam4button@gmail.com for details."
+				);
+			}
+
 			try {
 				await axios.post(
 					"https://nytec-website-api.herokuapp.com",
