@@ -1,6 +1,6 @@
 # NYTEC Website
 
-Go to apps.nytec.net to see the website live!
+Go to <a href="https://apps.nytec.net">apps.nytec.net</a> to see the website live!
 
 ## User Documentation
 1. Click the login button at the top right corner, then switch to sign up and make an account.
