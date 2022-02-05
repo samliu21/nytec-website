@@ -1,15 +1,5 @@
 # NYTEC Website
 
-Go to <a href="https://apps.nytec.net">apps.nytec.net</a> to see the website live!
+https://apps.nytec.net
 
-## User Documentation
-1. Click the login button at the top right corner, then switch to sign up and make an account.
-2. Click the left button to send your email verification. Go to your inbox and verify your email.
-3. That's all!
-
- ⚠️ You have full access to the website without authenticating, but only if you authenticate and verify your email address will you receive emails regarding the latest NYTEC news.
-
-## Code
-- React frontend
-- Flask backend
-- Firebase database
+A website created using React, Flask, and Firebase during a summer internship for the New York Theological Center. A replica of the <a href="https://github.com/samliu21/nytec-app">NYTEC app</a> I created (which was the main purpose of the internship). 
